@@ -11,91 +11,49 @@
   <title>Dungeon Master's Tools</title>
 
   <!--  Bootstrap core -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"></link>	
-  <!--  jQuery -->
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <link href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+  
+  <!-- jQuery -->	
+  <script type="text/javascript" th:src="@{/js/jquery-3.2.1.js}"></script>
+  
+  <!-- Tether -->	
+  <script type="text/javascript" th:src="@{/js/tether.min.js}"></script>
+  
   <!--  Bootstrap js -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"></link>
+  <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" th:href="@{/css/font-awesome-4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
 
 
-  <!-- CSS -->
-  
+  <!-- Custom Files -->
+  	
   <!-- Sidebar -->
   <link href="../css/side-bar.css" th:href="@{/css/side-bar.css}" rel="stylesheet" media="screen"/>
 
+  <link href="../css/main.css" th:href="@{/css/main.css}" rel="stylesheet" media="screen"/>
+  
 
 </head> 
 
-	<body>
+<body> 
+
+	<div class="row">
 	
-	<div class="nav-side-menu">
-    <div class="brand">Dungeon Master's Tools</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-  
-        <div class="menu-list">
-  
-            <ul id="menu-content" class="menu-content collapse out">
-                <li>
-                  <a href="#">
-                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                  </a>
-                </li>
-
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="products">
-                    <li class="active"><a href="#">CSS3 Animation</a></li>
-                    <li><a href="#">General</a></li>
-                    <li><a href="#">Buttons</a></li>
-                    <li><a href="#">Tabs &amp; Accordions</a></li>
-                    <li><a href="#">Typography</a></li>
-                    <li><a href="#">FontAwesome</a></li>
-                    <li><a href="#">Slider</a></li>
-                    <li><a href="#">Panels</a></li>
-                    <li><a href="#">Widgets</a></li>
-                    <li><a href="#">Bootstrap Model</a></li>
-                </ul>
-
-
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
-                </li>  
-                <ul class="sub-menu collapse" id="service">
-                  <li>Generate Random Town</li>
-                  <li>5e Monster Builder</li>
-                  <li>Markov Name Generator</li>
-                </ul>
-
-
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="new">
-                  <li>New New 1</li>
-                  <li>New New 2</li>
-                  <li>New New 3</li>
-                </ul>
-
-
-                 <li>
-                  <a href="#">
-                  <i class="fa fa-user fa-lg"></i> Profile
-                  </a>
-                  </li>
-
-                 <li>
-                  <a href="#">
-                  <i class="fa fa-users fa-lg"></i> Users
-                  </a>
-                </li>
-            </ul>
-     </div>
-</div>	
-	
+	  <div th:replace="fragments/side-nav :: side-nav">
+	 
+	  </div>  
+	  
+	  <div class="column col-sm-5 content-column">
+	    <h1>Input Div</h1>  	    
+	  </div>
+	  
+	  <div class="column col-sm-5 content-column">
+	    <h1>Output Div</h1>
+	  </div>
+	    
+	</div>
+    
 </body>
 	  
 </html>

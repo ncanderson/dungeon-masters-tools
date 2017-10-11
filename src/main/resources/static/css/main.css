@@ -1,0 +1,12 @@
+html, body {
+	min-height: 100%;
+	margin: 0;
+}
+
+.content-column {
+	border: 2px solid black;
+}
+
+.row {
+	margin: 0;
+}

@@ -9,4 +9,5 @@ public class DungeonMasterToolsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DungeonMasterToolsApplication.class, args);
 	}
+	
 }
