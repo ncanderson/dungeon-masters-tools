@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common/head-element :: head-element">
+</head>
+
+<body>
+
+	<div class="row">
+	
+	  <div th:replace="fragments/common/side-nav :: side-nav">
+	 
+	  </div>  
+	  
+	  <div class="column col-sm-5 content-column">
+	    <ul class="form-flex-outer">
+		  <li>
+		    <label for="region-name">Choose Region:</label>
+		    <select name="region-name" id="region-name">
+		      <option selected="selected">Select Region</option>
+		      <option value="region1">Region 1</option>
+		      <option value="region2">Region 2</option>
+		      <option value="region3">Region 3</option>
+	        </select>
+		  </li>
+			<!-- <li id="crop-variety-hidden">
+				<label for="variety">Select crop variety:</label>
+				<select name="variety" id="crop-variety"> 
+					JS will fill this menu out
+				</select>
+			</li>
+			<li>
+				<label for="harvestQuantity">Enter pounds available:</label>
+				<input type="text" name="harvestQuantity" />
+			</li>	
+	   		<li>
+	   			<label for="averageSizeOfItem">Average size of item:</label>
+	   			<input type="text" name="averageSizeOfItem" />	
+	   		</li>
+	   		<li>
+	   			<label for="pricePerPound">Enter price per pound:</label>
+	   			<input type="text" name="pricePerPound" id="pricePerPound"/>
+	   		</li>
+
+		    <li>
+	  			<label for="harvestAvailability">Availability:</label>
+	  			<textarea rows="2" id="harvestAvailability" placeholder="Enter crop availability" name="harvestAvailability"></textarea>
+	   		</li>
+	   		<li>
+	  			<label for="harvestEndDate">End Availability On:</label>
+	  			<input type="date" placeholder="dd/MM/yyyy" name="harvestEndDate"/>
+	   		</li>
+	   		<li>
+	   			<label for="harvestDetailsComments">Message:</label>
+	   			<textarea rows="2" id="harvestDetailsComments" placeholder="Notes about the crop" name="harvestDetailsComments" ></textarea>
+	   		</li>
+	   		<li>
+	   			<label for="farmerEnteredPickComments">Pick List Comments:</label>
+	   			<textarea rows="2" id="farmerEnteredPickComments" placeholder="Pick-list comments" name="farmerEnteredPickComments" ></textarea>
+	   		</li> -->
+			<li>
+				<input type="submit" class="form-centered-button" value="Generate" />
+			</li>
+		</ul>
+			    
+	  </div>
+	  
+	  <div class="column col-sm-5 content-column">
+	    <h1>Output Div</h1>
+	  </div>
+	    
+	</div>
+
+</body>
+	  
+</html>
+

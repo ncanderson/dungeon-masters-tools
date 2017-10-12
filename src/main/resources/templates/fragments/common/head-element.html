@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
+<head lang="en" th:fragment="head-element">
 
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -12,16 +12,12 @@
 
   <!--  Bootstrap core -->
   <link href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
-  
   <!-- jQuery -->	
   <script type="text/javascript" th:src="@{/js/jquery-3.2.1.js}"></script>
-  
   <!-- Tether -->	
   <script type="text/javascript" th:src="@{/js/tether.min.js}"></script>
-  
   <!--  Bootstrap js -->
   <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-
   <!-- Font Awesome -->
   <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" th:href="@{/css/font-awesome-4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
 
@@ -30,30 +26,14 @@
   	
   <!-- Sidebar -->
   <link href="../css/side-bar.css" th:href="@{/css/side-bar.css}" rel="stylesheet" media="screen"/>
-
+  <!-- Custom CSS -->
   <link href="../css/main.css" th:href="@{/css/main.css}" rel="stylesheet" media="screen"/>
-  
-
+  <!-- Custom JS -->
+  <script type="text/javascript" th:src="@{/js/application-main.js}"></script>
+    
 </head> 
 
 <body> 
-
-	<div class="row">
-	
-	  <div th:replace="fragments/side-nav :: side-nav">
-	 
-	  </div>  
-	  
-	  <div class="column col-sm-5 content-column">
-	    <h1>Input Div</h1>  	    
-	  </div>
-	  
-	  <div class="column col-sm-5 content-column">
-	    <h1>Output Div</h1>
-	  </div>
-	    
-	</div>
-    
 </body>
 	  
 </html>

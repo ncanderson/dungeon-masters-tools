@@ -8,7 +8,7 @@
 
 <div class="nav-side-menu column col-sm-2" th:fragment="side-nav">
   
-  <div class="brand">Dungeon Master's Tools</div>
+  <a th:href="@{/home}"><div class="brand">Dungeon Master's Tools</div></a>
   <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   
   <div class="menu-list">
@@ -21,32 +21,13 @@
         </a>
       </li>
 
-      <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-        <a href="#">
-          <i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span>
-        </a>
-      </li>
-      
-      <ul class="sub-menu collapse" id="products">
-        <li class="active"><a href="#">CSS3 Animation</a></li>
-        <li><a href="#">General</a></li>
-        <li><a href="#">Buttons</a></li>
-        <li><a href="#">Tabs &amp; Accordions</a></li>
-        <li><a href="#">Typography</a></li>
-        <li><a href="#">FontAwesome</a></li>
-        <li><a href="#">Slider</a></li>
-        <li><a href="#">Panels</a></li>
-        <li><a href="#">Widgets</a></li>
-        <li><a href="#">Bootstrap Model</a></li>
-      </ul>
-
       <li data-toggle="collapse" data-target="#service" class="collapsed">
-        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+        <a href="#"><i class="fa fa-globe fa-lg"></i> Generators <span class="arrow"></span></a>
       </li>  
-      <ul class="sub-menu collapse" id="service">
-        <li>Generate Random Town</li>
-        <li>5e Monster Builder</li>
-        <li>Markov Name Generator</li>
+      <ul class="sub-menu collapse nav-bar-header" id="service">
+        <a th:href="@{/generate-random-town}"><li id="generate-random-town">Generate Random Town</li></a>
+        <a href="#"><li id="monster-builder">5e Monster Builder</li></a>
+        <a href="#"><li id="markov-names">Markov Name Generator</li></a>
       </ul>
 
 
