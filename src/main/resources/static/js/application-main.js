@@ -23,7 +23,7 @@ $(document).ready(function() {
         // Do the work here	
         .done(function(data){
 
-        	$('output-column').append('<h1>' + regionName + '</h1>');
+        	$('#output-column').append('<h1>' + regionName + '</h1>');
         	console.log(regionName);
 
         })
