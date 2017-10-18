@@ -14,14 +14,18 @@ $(document).ready(function() {
     	var regionName = $(this).val();
     	
         $.ajax ({
-            url: "region-name?region-name=" + regionName,
+            url: "/region-name?region-name=" + regionName,
             method: "GET", 
-            dataType: "json"
+            dateType: "text"
+       /*     dataType: "json"*/
         })
         
         // Do the work here	
         .done(function(data){
-        	console.log(data)
+
+        	$('output-column').append('<h1>' + regionName + '</h1>');
+        	console.log(regionName);
+
         })
 /*        .done(function(data) {
         	$("#crop-variety").empty();
@@ -51,24 +55,25 @@ $(document).ready(function() {
            
         })*/
         .fail(function(xhr, status, error) {
+
             console.log(error);
         });
     });
     
-    $("#crop-variety").change(function() {
-       	
-        $.ajax ({
-            url: "priceGetter?cropType=" + $("#crop-type").val() + "&cropVariety=" + $("#crop-variety").val(),
-            method: "GET", 
-            dataType: "json"
-        })
-        .done(function(data) {
-        	$("#pricePerPound").val("");
-        	$("#pricePerPound").val("$" + data);
-        })
-        .fail(function(xhr, status, error) {
-            console.log(error);
-        });
-    });
+//    $("#crop-variety").change(function() {
+//       	
+//        $.ajax ({
+//            url: "priceGetter?cropType=" + $("#crop-type").val() + "&cropVariety=" + $("#crop-variety").val(),
+//            method: "GET", 
+//            dataType: "json"
+//        })
+//        .done(function(data) {
+//        	$("#pricePerPound").val("");
+//        	$("#pricePerPound").val("$" + data);
+//        })
+//        .fail(function(xhr, status, error) {
+//            console.log(error);
+//        });
+//    });
 });
  

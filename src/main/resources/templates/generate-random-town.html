@@ -12,16 +12,19 @@
 	  </div>  
 	  
 	  <div class="column col-sm-5 content-column">
-	    <ul class="form-flex-outer">
-		  <li>
-		    <label for="region-name">Choose Region:</label>
-		    <select name="region-name" id="region-name">
-		      <option selected="selected">Select Region</option>
-		      <option value="region1">Region 1</option>
-		      <option value="region2">Region 2</option>
-		      <option value="region3">Region 3</option>
-	        </select>
-		  </li>
+	  	<form action="generate" method="POST">
+		    <ul class="form-flex-outer">
+		    
+			  <li>
+			    <label for="region-name">Choose Region:</label>
+			    <select name="region-name" id="region-name">
+			      <option selected="selected">Select Region</option>
+			      <option value="region1">Region 1</option>
+			      <option value="region2">Region 2</option>
+			      <option value="region3">Region 3</option>
+		        </select>
+			  </li>
+		
 			<!-- <li id="crop-variety-hidden">
 				<label for="variety">Select crop variety:</label>
 				<select name="variety" id="crop-variety"> 
@@ -57,15 +60,16 @@
 	   			<label for="farmerEnteredPickComments">Pick List Comments:</label>
 	   			<textarea rows="2" id="farmerEnteredPickComments" placeholder="Pick-list comments" name="farmerEnteredPickComments" ></textarea>
 	   		</li> -->
-			<li>
-				<input type="submit" class="form-centered-button" value="Generate" />
-			</li>
-		</ul>
-			    
+				<li>
+					<input type="submit" class="form-centered-button" value="Generate" />
+				</li>
+			</ul>
+	  </form>
+	  		    
 	  </div>
 	  
-	  <div class="column col-sm-5 content-column">
-	    <h1>Output Div</h1>
+	  <div class="column col-sm-5 content-column" id="output-column">
+	    
 	  </div>
 	    
 	</div>
