@@ -15,13 +15,11 @@
 	  	<form action="generate" method="POST">
 		    <ul class="form-flex-outer">
 		    
-			  <li>
+  			  <li>
 			    <label for="region-name">Choose Region:</label>
 			    <select name="region-name" id="region-name">
-			      <option selected="selected">Select Region</option>
-			      <option value="region1">Region 1</option>
-			      <option value="region2">Region 2</option>
-			      <option value="region3">Region 3</option>
+			      <option style='display:none;' selected="selected">Select Region</option>			    
+				  <option th:each="regionName : ${regionNames}" th:value="${regionName.guidEntity}" th:text="${regionName.nameEntity}"></option>				  
 		        </select>
 			  </li>
 		
@@ -69,7 +67,10 @@
 	  </div>
 	  
 	  <div class="column col-sm-5 content-column" id="output-column">
-	    
+	    <div class="header">
+	      <h4>Region Name:</h4>
+	        <!-- Filled out by JS -->
+	    </div>
 	  </div>
 	    
 	</div>

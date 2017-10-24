@@ -6,19 +6,20 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import nate.anderson.dao.inter.RegionNameDAO;
-import nate.anderson.model.RegionName;
+import nate.anderson.dao.inter.RegionDAO;
+import nate.anderson.model.Region;
 
 @Controller
 public class HomeController {
 
-	private RegionNameDAO regionNameDAO;
+	private RegionDAO regionNameDAO;
 
 	@Autowired
-	public HomeController(RegionNameDAO regionNameDAO) {
+	public HomeController(RegionDAO regionNameDAO) {
 		this.regionNameDAO = regionNameDAO;
 	}
 
@@ -28,16 +29,12 @@ public class HomeController {
     }
 
 	@RequestMapping(value="/generate-random-town", method=RequestMethod.GET)
-    public String getRandomTown(HttpServletRequest request) {
+    public String getRandomTown(Model model) {
         
-		List<RegionName> regionNames = regionNameDAO.getRegionNames();
-		
-		request.setAttribute("regionNames", regionNames);
-		
-		for (RegionName name : regionNames) {
-			System.out.println(name.getNameEntity());
-		}
-		
+		List<Region> regionNames = regionNameDAO.getAllRegions();
+	
+		model.addAttribute("regionNames", regionNames);
+        
 		return "generate-random-town";
         
     }

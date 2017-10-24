@@ -7,73 +7,40 @@ $(document).ready(function() {
 	        $("form").submit();
 	    }
 	});
+
 	
-//	Make ajax call to update input area
     $("#region-name").change(function() {
-        
-    	var regionName = $(this).val();
     	
-        $.ajax ({
-            url: "/region-name?region-name=" + regionName,
-            method: "GET", 
-            dateType: "text"
-       /*     dataType: "json"*/
-        })
-        
-        // Do the work here	
-        .done(function(data){
-
-        	$('#output-column').append('<h1>' + regionName + '</h1>');
-        	console.log(regionName);
-
-        })
-/*        .done(function(data) {
-        	$("#crop-variety").empty();
-            $.each(data, function(index, cropType) {
-            	var option = document.createElement("option");
-            	$(option).attr("value", cropType.variety);
-            	$(option).text(cropType.variety);
-                $("#crop-variety").append(option);
-            });
-            
-            if ($("#crop-variety").children().length === 1) {
-            	
-        		$("#pricePerPound").val("");
-        		
-            	$.ajax ({
-            		url: "noVarietyPriceGetter?cropType=" + cropType,
-            		method: "GET",
-            		dataType: "json"            		
-            	})
-            	.done(function(subData) {
-            		$("#pricePerPound").val("$" + subData);
-            	})
-            	.fail(function(xhr, status, error) {
-            		console.log(error);
-            	});
-        	};
-           
-        })*/
-        .fail(function(xhr, status, error) {
-
-            console.log(error);
-        });
-    });
+    	var regionName = $("#region-name option:selected").text();
+    	
+    	$('#selected-region').remove()
+    	
+    	$('#output-column > .header').append('<h1 id="selected-region">' + regionName + '</h1>');
     
-//    $("#crop-variety").change(function() {
-//       	
+    });
+	
+//	Make ajax call to update output column
+//    $("#region-name").change(function() {
+//        
+//    	var regionName = $(this).text();
+//    	
 //        $.ajax ({
-//            url: "priceGetter?cropType=" + $("#crop-type").val() + "&cropVariety=" + $("#crop-variety").val(),
+//            url: "/region-name?region-name=" + regionName,
 //            method: "GET", 
-//            dataType: "json"
+//            dateType: "text"
+//       /*     dataType: "json"*/
 //        })
-//        .done(function(data) {
-//        	$("#pricePerPound").val("");
-//        	$("#pricePerPound").val("$" + data);
+//        .done(function(data){
+//
+//        	$('#output-column').append('<h1>' + regionName + '</h1>');
+//        	console.log(regionName);
+//
 //        })
 //        .fail(function(xhr, status, error) {
+//
 //            console.log(error);
 //        });
 //    });
+    
 });
  

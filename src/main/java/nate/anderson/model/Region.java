@@ -2,14 +2,14 @@ package nate.anderson.model;
 
 import java.util.UUID;
 
-public class RegionName {
+public class Region {
 
 	UUID guidEntity;
 	String nameEntity;
 	UUID guidTimePeriod;
 	UUID guidEntityType;
 	
-	public RegionName() {
+	public Region() {
 
 	}
 
