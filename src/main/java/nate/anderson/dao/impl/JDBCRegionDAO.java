@@ -28,9 +28,15 @@ public class JDBCRegionDAO implements RegionDAO {
 	@Transactional
 	public List<Region> getAllRegions() {
 	
-		String getAllRegions = 
-				"select * "
-				+ "from entity_Entity;";
+		String getAllRegions =
+			"select " + 
+			"	e.guid_entity," + 
+			"   ed.value_detail," +
+			"   e.guid_timeperiod," +
+			"   e.guid_entitytype " + 
+			"from entity_entity e " + 
+			"join entity_entitydetail ed " + 
+			"	on e.guid_entity = ed.guid_entity";	
 				
 		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllRegions);
 		
@@ -47,7 +53,7 @@ public class JDBCRegionDAO implements RegionDAO {
 			Region region = new Region();
 			
 			region.setGuidEntity((java.util.UUID) results.getObject("guid_entity"));
-			region.setNameEntity(results.getString("name_entity"));
+			region.setNameEntity(results.getString("value_detail"));
 			region.setGuidEntityType((java.util.UUID) results.getObject("guid_entityType"));
 			region.setGuidTimePeriod((java.util.UUID) results.getObject("guid_timePeriod"));
 			
