@@ -16,11 +16,11 @@ import nate.anderson.model.Region;
 @Controller
 public class HomeController {
 
-	private RegionDAO regionNameDAO;
+	private RegionDAO regionDAO;
 
 	@Autowired
-	public HomeController(RegionDAO regionNameDAO) {
-		this.regionNameDAO = regionNameDAO;
+	public HomeController(RegionDAO regionDAO) {
+		this.regionDAO = regionDAO;
 	}
 
 	@RequestMapping(value={"/", "/home"}, method=RequestMethod.GET)
@@ -31,7 +31,7 @@ public class HomeController {
 	@RequestMapping(value="/generate-random-town", method=RequestMethod.GET)
     public String getRandomTown(Model model) {
         
-		List<Region> regionNames = regionNameDAO.getAllRegions();
+		List<Region> regionNames = regionDAO.getAllRegions();
 	
 		model.addAttribute("regionNames", regionNames);
         

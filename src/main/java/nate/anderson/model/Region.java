@@ -4,10 +4,10 @@ import java.util.UUID;
 
 public class Region {
 
-	UUID guidEntity;
-	String nameEntity;
-	UUID guidTimePeriod;
-	UUID guidEntityType;
+	private UUID guidEntity;
+	private String nameEntity;
+	private UUID guidTimePeriod;
+	private UUID guidEntityType;
 	
 	public Region() {
 

@@ -13,14 +13,18 @@
   <!--  Bootstrap core -->
   <link href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
   <!-- jQuery -->	
-  <script type="text/javascript" th:src="@{/js/jquery-3.2.1.js}"></script>
+  <script type="text/javascript" th:src="@{/js/libraries/jquery-3.2.1.js}"></script>
   <!-- Tether -->	
-  <script type="text/javascript" th:src="@{/js/tether.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/libraries/tether.min.js}"></script>
   <!--  Bootstrap js -->
-  <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/libraries/bootstrap.min.js}"></script>
   <!-- Font Awesome -->
   <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" th:href="@{/css/font-awesome-4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
 
+  <!-- Tether JS -->  
+  <script type="text/javascript" th:src="@{/js/libraries/Underscore-1.8.3.js}"></script>
+  <!-- Backbone JS -->
+  <script type="text/javascript" th:src="@{/js/libraries/Backbone.js}"></script>
 
   <!-- Custom Files -->
   	
@@ -34,7 +38,22 @@
 </head> 
 
 <body> 
+  
+  <div id="main">
+  
+  </div>
+  
 </body>
+
+<!-- Load App.js -->
+<script type="text/javascript" th:src="@{/js/App.js}"></script> 
+
+<!-- Models -->
+<script type="text/javascript" th:src="@{/js/models/RandomTown.js}"></script> 
+
+<!-- Load Router.js -->
+<script type="text/javascript" th:src="@{/js/Router.js}"></script> 
+
 	  
 </html>
 
