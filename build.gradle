@@ -35,6 +35,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-devtools')
 
+	compile ('com.google.code.gson:gson:2.2.4')
+
 	runtime('org.postgresql:postgresql:42.1.4')
 	
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')

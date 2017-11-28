@@ -24,18 +24,22 @@ public class HomeController {
 	}
 
 	@RequestMapping(value={"/", "/home"}, method=RequestMethod.GET)
-    public String getHomePage() {
-        return "main";
+    public String getHomePage(Model model) {
+//        List<Region> regionNames = regionDAO.getAllRegions();
+//	
+//		model.addAttribute("regionNames", regionNames);
+        
+		return "index";
     }
 
-	@RequestMapping(value="/generate-random-town", method=RequestMethod.GET)
-    public String getRandomTown(Model model) {
-        
-		List<Region> regionNames = regionDAO.getAllRegions();
-	
-		model.addAttribute("regionNames", regionNames);
-        
-		return "generate-random-town";
-        
-    }
+//	@RequestMapping(value="/generate-random-town", method=RequestMethod.GET)
+//    public String getRandomTown(Model model) {
+//        
+//		List<Region> regionNames = regionDAO.getAllRegions();
+//	
+//		model.addAttribute("regionNames", regionNames);
+//        
+//		return "generate-random-town";
+//        
+//    }
 }
