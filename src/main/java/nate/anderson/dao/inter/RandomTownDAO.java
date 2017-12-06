@@ -6,6 +6,6 @@ import nate.anderson.model.RandomTown;
 
 public interface RandomTownDAO {
 
-	String getRandomTown(int population, String regionGuid);
+	String getRandomTown(String population, String regionGuid);
 
 }

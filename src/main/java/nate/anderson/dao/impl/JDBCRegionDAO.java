@@ -36,7 +36,10 @@ public class JDBCRegionDAO implements RegionDAO {
 			"   e.guid_entitytype " + 
 			"from entity_entity e " + 
 			"join entity_entitydetail ed " + 
-			"	on e.guid_entity = ed.guid_entity";	
+			"	on e.guid_entity = ed.guid_entity " +
+			"join entity_lu_entitytype et " + 
+			"   on et.guid_entitytype = e.guid_entitytype " +
+			"where et.name_entitytype = 'Region'";	
 				
 		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllRegions);
 		

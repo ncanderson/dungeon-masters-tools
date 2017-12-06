@@ -28,21 +28,24 @@
 	<script type="text/javascript" th:src="@{/js/lib/angular.js}"></script>
 		
 	<script type="text/javascript" th:src="@{/js/app.module.js}"></script>
-		
-		<!-- Custom Files -->
+	<script type="text/javascript" th:src="@{/js/components/randomTownGenerator/randomTownGenerator.js}"></script>
+	<script type="text/javascript" th:src="@{/js/components/randomTownGenerator/randomTownController.js}"></script>
+	<script type="text/javascript" th:src="@{/js/components/randomTownGenerator/randomTownService.js}"></script>
+
+				
+		<!-- CSS -->
 	
 	<!-- Sidebar -->
 	<link href="../css/side-bar.css" th:href="@{/css/side-bar.css}" rel="stylesheet" media="screen"/>
 	<!-- Custom CSS -->
 	<link href="../css/main.css" th:href="@{/css/main.css}" rel="stylesheet" media="screen"/>
-	<!-- Custom JS -->
-	<script type="text/javascript" th:src="@{/js/application-main.js}"></script>
 
 </head> 
 
 <body ng-app="dungeonMastersTools">
 
-<div class="row">
+<div class="row" ng-controller='RandomTownCtrl'>
+	
 
 	<!-- Navigation - still using Thymeleaf -->
 	<div class="nav-side-menu column col-sm-2">
@@ -90,12 +93,11 @@
 	
 		</div>
 	
-	
 	</div>
 	
 	<div class="column col-sm-5 content-column">
 
-		<form ng-controller= "RandomTownCtrl" ng-init="getAllRegions()" ng-submit="getRandomTown()">
+		<form ng-init="getAllRegions()" ng-submit="getRandomTown()">
 		
 			<h3>Generate Random Town</h3>
 		
@@ -106,6 +108,9 @@
 						
 					<option value="" ng-if="!guidEntity">Choose Region</option>
 				</select>
+				<input type="text"
+					   ng-model="townSize"
+					   ng-minlength="1"/>
 			</div>
 			
 			<button type="submit" class="btn btn-primary">Generate!</button>
@@ -115,11 +120,38 @@
 	</div>
 
 	<div class="column col-sm-5 content-column" id="output-column">
-		<div class="header" ng-controller="RandomTownCtrl">
-			<h4>Region Name:</h4>
-			{{ greeting }}
-			<!-- Filled out by JS -->
+	
+		<div class="header">			
+			<h3>Random Towns:</h3>
 		</div>
+		
+		<div>
+			<ul>
+				<li ng-repeat="item in randomTown">
+					Region: {{ item.name_region }}
+						<br/>
+					Population: {{ item.town_size }}
+						<br/> 				
+					Cultures:							
+					<ul>
+						<li ng-repeat="culture in item.cultures">
+							{{ culture.name_culture }}: {{ culture.population_culture }} 
+							<br/>
+							Religions:						
+							<ul>
+								<li ng-repeat="religion in culture.religions">	
+									{{ religion.name_religion }}: {{ religion.population_religion }}
+								</li>												
+							</ul>
+							
+						</li>		
+					</ul>
+					
+				</li>		
+			</ul>
+		
+		</div>
+
 	</div>
 			
 </div>

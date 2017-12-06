@@ -41,11 +41,10 @@ public class RESTFULController {
 	
 	@ResponseBody 
 	@RequestMapping(path="/region-name", method = RequestMethod.GET)
-	public String getRegionNames(@RequestParam("region-guid") String regionGuid) {
+	public String getRandomTown(@RequestParam("region-guid") String regionGuid,
+								@RequestParam("town-size") String townSize) {
 
-		int population = 10000;
-		
-		String randomTowns = randomTownDAO.getRandomTown(population, regionGuid);
+		String randomTowns = randomTownDAO.getRandomTown(townSize, regionGuid);
 		
 		return randomTowns; 
 	}
