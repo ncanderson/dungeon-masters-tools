@@ -30,7 +30,7 @@ public class JDBCRandomTownDAO implements RandomTownDAO {
 	
 	@Override
 	@Transactional
-	public String getRandomTown(String population, String regionGuid) {
+	public String getRandomTown(int population, String regionGuid) {
 		
 		String callRandomTownFunction = 
 				"select * " + 

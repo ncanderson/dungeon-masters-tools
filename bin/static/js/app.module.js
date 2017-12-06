@@ -32,7 +32,7 @@ app.controller('RandomTownCtrl', [
 			var regionGuid = 'region-guid=' + $scope.guidEntity; 
 			var townSize = 'town-size=' + $scope.townSize;
 			
-			if (typeof guidEntity === 'undefined') { return };
+			if (typeof regionGuid === 'undefined') { return };
 			
 			$http({
 				  method: 'GET',
@@ -45,6 +45,8 @@ app.controller('RandomTownCtrl', [
 					
 			}, function errorCallback(response) {
 
+				console.log('$http error');
+				
 			});
 			
 		};
