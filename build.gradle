@@ -60,3 +60,10 @@ stage.mustRunAfter(clean)
 clean << {
     project.file('app.jar').delete()
 }
+
+task copyToLib(type: Copy) {
+    into "$buildDir/lib"
+    from(configurations.compile)
+}
+
+stage.dependsOn(copyToLib)
