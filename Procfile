@@ -1,1 +1,1 @@
-java -Dserver.port=$PORT $JAVA_OPTS -war build/libs/*.war
+java -Dserver.port=$PORT $JAVA_OPTS -jsar build/libs/*.jar
