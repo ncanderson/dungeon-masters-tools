@@ -46,9 +46,6 @@ public class RESTFULController {
 
 		String randomTowns = randomTownDAO.getRandomTown(Integer.parseInt(townSize), regionGuid);
 		
-		System.out.println("test");
-		System.out.println(randomTowns);
-		
 		return randomTowns; 
 	}
 	

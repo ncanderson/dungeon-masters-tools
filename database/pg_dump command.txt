@@ -1,0 +1,1 @@
+PGPASSWORD=postgres pg_dump -Fc --clean --no-acl --no-owner -h localhost -p 5433 -U postgres world_builder > world_builder.dump

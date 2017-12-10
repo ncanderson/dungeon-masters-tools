@@ -41,8 +41,8 @@ app.controller('RandomTownCtrl', [
 				
 				$scope.randomTown = response.data; 
 
-				console.log($scope.randomTown);
-					
+				//console.log($scope.randomTown);
+				
 			}, function errorCallback(response) {
 
 				console.log('$http error');
