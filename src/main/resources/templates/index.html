@@ -32,7 +32,6 @@
 	<script type="text/javascript" th:src="@{/js/components/randomTownGenerator/randomTownController.js}"></script>
 	<script type="text/javascript" th:src="@{/js/components/randomTownGenerator/randomTownService.js}"></script>
 
-				
 		<!-- CSS -->
 	
 	<!-- Sidebar -->
@@ -66,7 +65,6 @@
 					<a href="#"><li id="markov-names">Markov Name Generator</li></a>
 				</ul>
 			
-			
 				<li data-toggle="collapse" data-target="#new" class="collapsed">
 					<a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
 				</li>
@@ -97,28 +95,35 @@
 	
 	<div class="column col-sm-5 content-column">
 
-		<form ng-init="getAllRegions()" ng-submit="getRandomTown()">
+		<form class="form-horizontal" ng-init="getAllRegions()" ng-submit="getRandomTown()">
 		
 			<h3>Generate Random Town</h3>
 		
-			<div class="form-group">
-			
+			<div class="form-group row">
+				<label for="selectRegion" class="col-sm-6 col-form-label">Select Region:</label>
+				
 				<select name="nameEntity"
-						ng-model="guidEntity" 
-						ng-options="item.guidEntity as item.nameEntity for item in regions">
-						
-					<option value="" ng-if="!guidEntity">Choose Region</option>
+					id="selectRegion"
+					class="col-sm-6 form-control"
+					ng-model="guidEntity" 
+					ng-options="item.guidEntity as item.nameEntity for item in regions">
+					
+					<option value="" ng-if="!guidEntity"></option>
 				</select>
+			</div>
+							
+			<div class="form-group row">
+				<label for="townSize" class="col-sm-6 col-form-label">Select Town Size:</label>
 				
 				<input type="text"
-					   ng-model="townSize"
-					   ng-minlength="1"/>
-					   
+						id="townSize"
+						class="col-sm-6"
+						ng-model="townSize"
+						ng-minlength="1"/>					   
 			</div>
 			
 			<button type="submit" class="btn btn-primary">Generate!</button>
 		</form>
-	
 
 	</div>
 
@@ -142,11 +147,11 @@
 							<br/>
 							Religions:						
 							<ul>
-								<li ng-repeat="religion in culture.religions">	
+								<li ng-repeat="religion in culture.religions | orderBy: 'religion.population_religion'">	
 									{{ religion.name_religion }}: {{ religion.population_religion }}
 								</li>												
 							</ul>
-							
+					
 						</li>		
 					</ul>
 					
