@@ -1,6 +1,9 @@
 var app = angular.module('dungeonMastersTools', [
-	'randomTownGenerator'
+	'randomTownGenerator',
+	'ui.router'
 ]);
+
+// Move this logic to the randomTownGenerator service
 
 app.controller('RandomTownCtrl', [
 	
