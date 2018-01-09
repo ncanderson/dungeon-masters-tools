@@ -1,57 +1,21 @@
 var app = angular.module('dungeonMastersTools', [
-	'randomTownGenerator',
-	'ui.router'
+	'randomTownGenerator'
+	//'ui.router'
 ]);
 
-// Move this logic to the randomTownGenerator service
-
-app.controller('RandomTownCtrl', [
+app.controller('MainCtrl', [
 	
 	'$scope', 
 	'$http',
 	
 	function($scope, $http){
     
-		window.MY_SCOPE = $scope;
-		
-		$scope.getAllRegions = function() {
-			
-			$http({
-				  method: 'GET',
-				  url: '/all-regions'
-			}).then(function successCallback(response) {
-				
-				$scope.regions = response.data;
+		$scope.templates = [
+			{ name: 'navigation.tpl.html', url: 'js/components/shared/navigation/navigation.tpl.html'}
+		]
+		  
+		$scope.template = $scope.templates[0];
+    
+	}
 	
-			}, function errorCallback(response) {
-
-				console.log('error');
-				
-			});
-		};
-		
-		$scope.getRandomTown = function() {
-				
-			var regionGuid = 'region-guid=' + $scope.guidEntity; 
-			var townSize = 'town-size=' + $scope.townSize;
-			
-			if (typeof regionGuid === 'undefined') { return };
-			
-			$http({
-				  method: 'GET',
-				  url: '/region-name?' + regionGuid + '&' + townSize
-			}).then(function successCallback(response) {
-				
-				$scope.randomTown = response.data; 
-
-				//console.log($scope.randomTown);
-				
-			}, function errorCallback(response) {
-
-				console.log('$http error');
-				
-			});
-			
-		};
-    }
 ]);
