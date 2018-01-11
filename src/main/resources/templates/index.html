@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head lang="en" th:fragment="head-element">
+<html ng-app="dungeonMastersTools">
+<head lang="en">
 	
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -13,15 +13,15 @@
 		<!-- Boostrap -->
 	
 	<!--Bootstrap core -->
-	<link href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+	<link href="../css/bootstrap.css" rel="stylesheet" media="screen"/>
 	<!-- jQuery -->	
-	<script type="text/javascript" th:src="@{/js/lib/jquery-3.2.1.js}"></script>
+	<script type="text/javascript" src="js/lib/jquery-3.2.1.js"></script>
 	<!-- Tether -->	
-	<script type="text/javascript" th:src="@{/js/lib/tether.min.js}"></script>
+	<script type="text/javascript" src="js/lib/tether.min.js"></script>
 	<!--Bootstrap js -->
-	<script type="text/javascript" th:src="@{/js/lib/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
 	<!-- Font Awesome -->
-	<link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" th:href="@{/css/font-awesome-4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
+	<link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
 	
 		<!-- Angular -->
 		
@@ -33,91 +33,97 @@
 	<script type="text/javascript" src="js/components/randomTownGenerator/randomTownGenerator.js"></script>
 	<script type="text/javascript" src="js/components/randomTownGenerator/randomTownController.js"></script>
 	<script type="text/javascript" src="js/components/randomTownGenerator/randomTownService.js"></script>
-	
+	 
+	<script type="text/javascript" src="js/components/shared/navigation/mainNavigation.js"></script>
+	<script type="text/javascript" src="js/components/shared/navigation/mainNavigationController.js"></script>
+	<script type="text/javascript" src="js/components/shared/navigation/mainNavigationService.js"></script>
+	 	 
 		<!-- CSS -->
 	
 	<!-- Sidebar -->
-	<link href="../css/side-bar.css" th:href="@{/css/side-bar.css}" rel="stylesheet" media="screen"/>
+	<link href="../css/side-bar.css" rel="stylesheet" media="screen"/>
 	<!-- Custom CSS -->
-	<link href="../css/main.css" th:href="@{/css/main.css}" rel="stylesheet" media="screen"/>
+	<link href="../css/main.css" rel="stylesheet" media="screen"/>
 
 </head> 
 
-<body ng-app="dungeonMastersTools" ng-controller="MainCtrl">
+<body>
 
-	<div ng-include="template.url"></div>
-	
-<div class="row" ng-controller='RandomTownCtrl'>
-	
-	<div class="column col-sm-5 content-column">
+<div class="main-wrapper">
 
-		<form class="form-horizontal" ng-init="getAllRegions()" ng-submit="getRandomTown()">
-		
-			<h3>Generate Random Town</h3>
-		
-			<div class="form-group row">
-				<label for="selectRegion" class="col-sm-6 col-form-label">Select Region:</label>
-				
-				<select name="nameEntity"
-					id="selectRegion"
-					class="col-sm-6 form-control"
-					ng-model="guidEntity" 
-					ng-options="item.guidEntity as item.nameEntity for item in regions">
+	<main-navigation></main-navigation>
+
+
+		<div ng-controller="RandomTownCtrl" class="content-column">
+	
+			<form ng-init="getAllRegions()" ng-submit="getRandomTown()">
+			
+				<h3>Generate Random Town</h3>
+			
+				<div class="form-group-row">
+					<label for="selectRegion">Select Region:</label>
 					
-					<option value="" ng-if="!guidEntity"></option>
-				</select>
-			</div>
-							
-			<div class="form-group row">
-				<label for="townSize" class="col-sm-6 col-form-label">Select Town Size:</label>
+					<select name="nameEntity"
+						id="selectRegion"
+						ng-model="guidEntity" 
+						ng-options="item.guidEntity as item.nameEntity for item in regions">
+						
+						<option value="" ng-if="!guidEntity"></option>
+					</select>
+				</div>
+								
+				<div class="form-group-row">
+					<label for="townSize">Select Town Size:</label>
+					
+					<input type="text"
+							id="townSize"
+							ng-model="townSize"
+							ng-minlength="1"/>					   
+				</div>
 				
-				<input type="text"
-						id="townSize"
-						class="col-sm-6"
-						ng-model="townSize"
-						ng-minlength="1"/>					   
+				<div class="button-row">
+					<button type="submit">Generate!</button>
+				</div>
+				
+			</form>
+	
+		</div>
+	
+		<div class="content-column" id="output-column">
+		
+			<div class="header">			
+				<h3>Random Towns:</h3>
 			</div>
 			
-			<button type="submit" class="btn btn-primary">Generate!</button>
-		</form>
-
-	</div>
-
-	<div class="column col-sm-5 content-column" id="output-column">
-	
-		<div class="header">			
-			<h3>Random Towns:</h3>
-		</div>
-		
-		<div>
-			<ul>
-				<li ng-repeat="item in randomTown">
-					Region: {{ item.name_region }}
-						<br/>
-					Population: {{ item.town_size }}
-						<br/> 				
-					Cultures:							
-					<ul>
-						<li ng-repeat="culture in item.cultures">
-							{{ culture.name_culture }}: {{ culture.population_culture }} 
+			<div>
+				<ul>
+					<li ng-repeat="item in randomTown">
+						Region: {{ item.name_region }}
 							<br/>
-							Religions:						
-							<ul>
-								<li ng-repeat="religion in culture.religions | orderBy: 'religion.population_religion'">	
-									{{ religion.name_religion }}: {{ religion.population_religion }}
-								</li>												
-							</ul>
-					
-						</li>		
-					</ul>
-					
-				</li>		
-			</ul>
-		
-		</div>
-
-	</div>
+						Population: {{ item.town_size }}
+							<br/> 				
+						Cultures:							
+						<ul>
+							<li ng-repeat="culture in item.cultures">
+								{{ culture.name_culture }}: {{ culture.population_culture }} 
+								<br/>
+								Religions:						
+								<ul>
+									<li ng-repeat="religion in culture.religions | orderBy: 'religion.population_religion'">	
+										{{ religion.name_religion }}: {{ religion.population_religion }}
+									</li>												
+								</ul>
+						
+							</li>		
+						</ul>
+						
+					</li>		
+				</ul>
 			
+			</div>
+	
+		</div>
+	
 </div>
 
 </body>

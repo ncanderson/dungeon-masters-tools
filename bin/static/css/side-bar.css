@@ -4,12 +4,13 @@
   font-size: 12px;
   font-weight: 200;
   background-color: #2e353d;
-  /* position: absolute;  */
+  display: block;
   top: 0px;
   width: 300px;
   height: 100%; 
   color: #e1ffff;
   padding: 0;
+  flex-direction: column;
 }
 .nav-side-menu .brand {
   background-color: #23282e;
