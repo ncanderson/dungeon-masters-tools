@@ -1,0 +1,66 @@
+<div ng-controller="RandomTownCtrl" class="content-column">
+	
+	<form ng-init="getAllRegions()" ng-submit="getRandomTown()">
+	
+		<h3>Generate Random Town</h3>
+	
+		<div class="form-group-row">
+			<label for="selectRegion">Select Region:</label>
+			
+			<select name="nameEntity"
+				id="selectRegion"
+				ng-model="guidEntity" 
+				ng-options="item.guidEntity as item.nameEntity for item in regions">
+				
+				<option value="" ng-if="!guidEntity"></option>
+			</select>
+		</div>
+						
+		<div class="form-group-row">
+			<label for="townSize">Select Town Size:</label>
+			
+			<input type="text"
+					id="townSize"
+					ng-model="townSize"
+					ng-minlength="1"/>					   
+		</div>
+		
+		<div class="button-row">
+			<button type="submit">Generate!</button>
+		</div>
+		
+	</form>
+
+</div>
+
+<div class="content-column" id="output-column">
+
+	<div class="header">			
+		<h3>Random Towns:</h3>
+	</div>
+	
+	<div>
+		<ul>
+			<li ng-repeat="item in randomTown">
+				Region: {{ item.name_region }}
+					<br/>
+				Population: {{ item.town_size }}
+					<br/> 				
+				Cultures:							
+				<ul>
+					<li ng-repeat="culture in item.cultures">
+						{{ culture.name_culture }}: {{ culture.population_culture }} 
+						<br/>
+						Religions:						
+						<ul>
+							<li ng-repeat="religion in culture.religions | orderBy: 'religion.population_religion'">	
+								{{ religion.name_religion }}: {{ religion.population_religion }}
+							</li>												
+						</ul>
+					</li>		
+				</ul>	
+			</li>		
+		</ul>
+	</div>
+
+</div>

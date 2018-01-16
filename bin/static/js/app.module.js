@@ -1,5 +1,5 @@
 var dungeonMastersTools = angular.module('dungeonMastersTools', [
-	'randomTownGenerator',
+	'randomTownGenerator.module',
 	'mainNavigation.module'
 ]);
 
