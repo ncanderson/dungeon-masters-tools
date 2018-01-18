@@ -10,6 +10,8 @@ dungeonMastersTools.controller('MainCtrl', [
 	
 	function MainCtrl($scope, $http){
     
+		window.MY_SCOPE = $scope;
+		
 	}
 	
 ]);
