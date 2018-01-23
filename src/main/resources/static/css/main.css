@@ -13,7 +13,10 @@ html, body {
 	min-height: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	/* flex-direction: row;	 */
+}
+
+.main-content .content-column {
+	padding: 10px;
 }
 
 .content-column {
@@ -21,14 +24,12 @@ html, body {
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 	height: 100vh;
-	/* min-height: 100%; */
-/* 	display: flex; */
-	/* flex-direction: column; */
 }
 
 .form-group {
 	flex-direction: column;	
 }
+
 
 .form-group-row {
 	flex-direction: row;

@@ -2,9 +2,9 @@
 
 	<div class="content-column">
 		
-		<form ng-init="getAllRegions()" ng-submit="getRandomTown()">
+		<h3>Generate Random Town:</h3>
 		
-			<h3>Generate Random Town</h3>
+		<form ng-init="getAllRegions()" ng-submit="getRandomTown()" class="input-form">
 		
 			<div class="form-group-row">
 				<label for="selectRegion">Select Region:</label>
@@ -50,7 +50,7 @@
 						<br/> 				
 					Cultures:							
 					<ul>
-						<li ng-repeat="culture in item.cultures">
+						<li ng-repeat="culture in item.cultures | orderBy:'item.cultures.population_culture'">
 							{{ culture.name_culture }}: {{ culture.population_culture }} 
 							<br/>
 							Religions:						
