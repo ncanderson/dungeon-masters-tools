@@ -1,0 +1,294 @@
+<html>
+
+<head>
+
+  <meta charset='utf-8'/>
+
+  <title>D&D 5e Statblock - Animated Armor</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Lora:700' rel='stylesheet' type='text/css'/>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'/>
+
+  <style>
+
+    body {
+      margin: 0;
+      width: 444px;
+      display: block;
+      color: #7A200D;
+    }
+    /* main container */
+    #stat-block {
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    .bar {
+      height: 5px;
+      background: #E69A28;
+      border: 1px solid #000;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* :host {
+      width: 424px;
+      display: block;
+    } */
+
+    #content-wrap {
+      font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial,
+                    sans-serif;
+      font-size: 13px;
+      display: block;
+      background: #FDF1DC;
+      padding: 0.6em;
+      border: 1px #DDD solid;
+      box-shadow: 0 0 1.5em #867453;
+      /* We don't want the box-shadow in front of the bar divs. */
+      position: relative;
+      z-index: 0;
+      /* Leaving room for the two bars to protrude outwards */
+      margin-left: 2px;
+      margin-right: 2px;
+    }
+
+    #content-wrap > h3 {
+      border-bottom: 1px solid #7A200D;
+      color: #7A200D;
+      font-size: 18px;
+      font-variant: small-caps;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    /* Last block shouldn't have margin, too much white space. */
+    #content-wrap property-block:last-child /deep/ p {
+      margin-bottom: 0;
+    }
+
+    /* Creature header */
+    .creature-heading > h1 {
+      font-family: 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman,
+                   'Goudy Old Style', Garamond, 'Hoefler Text',
+                   'Bitstream Charter', Georgia, serif;
+      color: #7A200D;
+      font-weight: 700;
+      margin-top: -6px;
+      margin-bottom: -2px;
+      font-size: 25px;
+      letter-spacing: 2px;
+      font-variant: small-caps;
+    }
+
+    .creature-heading > h2 {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 12px;
+      margin: 0;
+      color: black;
+    }
+
+    /* Tapered line SVG */
+    svg {
+      fill: #922610;
+      /* Stroke is necessary for good antialiasing in Chrome. */
+      stroke: #922610;
+      margin-top: 0.7em;
+      margin-bottom: 0.35em;
+      height: 5;
+      width: 400;
+    }
+
+    /* Lines */
+    /* div {
+      Indenting everything EXCEPT the first line.
+      text-indent: -1em;
+      margin-left: 1em;
+    } */
+
+    .property-line {
+      margin-top: 3px;
+    }
+
+    .property-line > * {
+      display: inline;
+    }
+
+    .property-line > p {
+      margin-left: 0.4em;
+    }
+
+    div.property-line {
+      /* Indenting everything EXCEPT the first line */
+      text-indent: -1em;
+      margin-left: 1em;
+    }
+
+    /* Ability Scores */
+    table {
+      width: 100%;
+      border: 0px;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      width: 50px;
+      text-align: center;
+    }
+
+    /* Property Blocks */
+    .property-block {
+      margin-top: 3px;
+    }
+
+
+    .property-block > h4 {
+      display: inline;
+      font-weight: bold;
+      font-style: italic;
+      color: black;
+    }
+
+    .property-block > p {
+      display: inline;
+      color: black;
+    }
+
+    p {
+      margin-top: 0.3em;
+      margin-bottom: 0.9em;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="stat-block">
+    <!-- Top of output -->
+    <div class='bar'></div>
+
+    <div id='content-wrap'>
+
+      <!-- Header -->
+      <div class="creature-heading">
+        <h1>Animated Armor</h1>
+        <h2>Medium construct, unaligned</h2>
+      </div>
+
+      <svg>
+        <polyline points='0,0 400,2.5 0,5'></polyline>
+      </svg>
+
+      <!-- Ac/HP -->
+      <div class="property-line">
+        <h4>Armor Class</h4>
+        <p>18 (natural armor) </p>
+      </div>
+
+      <div class="property-line">
+        <h4>Hit Points</h4>
+        <p>33 (6d8 + 6)</p>
+      </div>
+
+      <div class="property-line">
+        <h4>Speed</h4>
+        <p>25 ft.</p>
+      </div>
+
+      <svg>
+        <polyline points='0,0 400,2.5 0,5'></polyline>
+      </svg>
+
+      <!-- Ability Scores -->
+      <table>
+        <tbody>
+          <tr>
+            <th>STR</th>
+            <th>DEX</th>
+            <th>CON</th>
+            <th>INT</th>
+            <th>WIS</th>
+            <th>CHA</th>
+          </tr>
+          <tr>
+            <td id='str'>14</td>
+            <td id='dex'>12</td>
+            <td id='con'>11</td>
+            <td id='int'>3</td>
+            <td id='wis'>5</td>
+            <td id='cha'>8</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <svg>
+        <polyline points='0,0 400,2.5 0,5'></polyline>
+      </svg>
+      
+      <!-- Immunities, resistances, skills, etc -->
+      <div class="property-line">
+        <h4>Damage Immunities</h4>
+        <p>poison, psychic</p>
+      </div>
+
+      <div class="property-line">
+        <h4>Condition Immunities</h4>
+        <p>blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned</p>
+      </div>
+
+      <div class="property-line">
+        <h4>Senses</h4>
+        <p>blindsight 60 ft. (blind beyond this radius), passive Perception 6</p>
+      </div>
+
+      <div class="property-line">
+        <h4>Languages</h4>
+        <p>—</p>
+      </div>
+
+      <div class="property-line">
+        <h4>Challenge</h4>
+        <p>2 (450 XP)</p>
+      </div>
+
+      <svg>
+        <polyline points='0,0 400,2.5 0,5'></polyline>
+      </svg>
+
+      <!-- Features -->
+      <div class="property-block">
+        <h4>Antimagic Susceptibility.</h4>
+        <p>The armor is incapacitated while in the area of an <i>antimagic field</i>.  If targeted by <i>dispel magic</i>, the armor must succeed on a Constitution saving throw against the caster’s spell save DC or fall unconscious for 1 minute.</p>
+      </div>
+          
+      <div class="property-block">
+        <h4>False Appearance.</h4>
+        <p>While the armor remains motionless, it is indistinguishable from a normal suit of armor.</p>
+      </div>
+
+      <!-- Actions -->
+      <h3>Actions</h3>        
+      <div class="property-block">
+        <h4>Multiattack.</h4>
+        <p> The armor makes two melee attacks.</p>
+      </div>
+  
+      <div class="property-block">
+        <h4>Slam.</h4>
+        <p><i>Melee Weapon Attack:</i> +4 to hit, reach 5 ft., one target.
+        <i>Hit:</i> 5 (1d6+2) bludgeoning damage.</p>
+      </div>
+
+    </div>
+    <!-- Bottom of output -->
+    <div class='bar'></div>
+
+  </div>
+
+</body>
+
+</html>
