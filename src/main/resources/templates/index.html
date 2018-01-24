@@ -30,20 +30,31 @@
 		
 	<script type="text/javascript" src="js/app.module.js"></script>
 	
-	<script type="text/javascript" src="js/components/randomTownGenerator/randomTownGenerator.module.js"></script>
-	<script type="text/javascript" src="js/components/randomTownGenerator/randomTown.controller.js"></script>
-	<script type="text/javascript" src="js/components/randomTownGenerator/randomTown.service.js"></script>
-	 
+		<!-- Navigation --> 
 	<script type="text/javascript" src="js/components/shared/navigation/mainNavigation.module.js"></script>
 	<script type="text/javascript" src="js/components/shared/navigation/mainNavigation.controller.js"></script>
 	<script type="text/javascript" src="js/components/shared/navigation/mainNavigation.service.js"></script>
-	 	 
-		<!-- CSS -->
+	<link href="js/components/shared/navigation/mainNavigation.css" rel="stylesheet" media="screen"/>
 	
-	<!-- Sidebar -->
-	<link href="../css/side-bar.css" rel="stylesheet" media="screen"/>
-	<!-- Custom CSS -->
+		<!-- Random Town Generator -->	
+	<script type="text/javascript" src="js/components/randomTownGenerator/randomTownGenerator.module.js"></script>
+	<script type="text/javascript" src="js/components/randomTownGenerator/randomTown.controller.js"></script>
+	<script type="text/javascript" src="js/components/randomTownGenerator/randomTown.service.js"></script>
+		 	 
+		<!-- Monster Builder -->
+	<!-- <script type="text/javascript" src="js/components/monsterBuilder/monsterBuilder.module.js"></script>
+	<script type="text/javascript" src="js/components/monsterBuilder/monsterBuilder.controller.js"></script>
+	<script type="text/javascript" src="js/components/monsterBuilder/monsterBuilder.service.js"></script> -->
+	<link href="js/components/monsterBuilder/monsterBuilder.css" rel="stylesheet" media="screen"/>
+		
+	<!-- Fonts -->
+  	<link href='http://fonts.googleapis.com/css?family=Lora:700' rel='stylesheet' type='text/css'/>
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'/>
+	
+		<!-- Custom CSS -->
 	<link href="../css/main.css" rel="stylesheet" media="screen"/>
+
+	<link href="../css/shame.css" rel="stylesheet" media="screen"/>
 
 </head> 
 
@@ -53,10 +64,8 @@
 
 		<div id="header" class="content-column" ng-include="'js/components/shared/navigation/mainNavigation.tpl.html'"></div>
 
-		<div ui-view=""></div>
-		
-<!-- 		<random-town-generator></random-town-generator>
-	  -->
+		<div ui-view="" class="content-column"></div>
+	
 	</div>
 
 </body>

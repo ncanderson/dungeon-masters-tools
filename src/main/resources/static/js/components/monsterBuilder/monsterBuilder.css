@@ -1,14 +1,10 @@
-body {
-  margin: 0;
-  width: 444px;
-  display: block;
-  color: #7A200D;
-}
 /* main container */
 #stat-block {
-  margin-left: 20px;
-  margin-top: 20px;
-}
+  width: 440px;
+  display: block;
+  color: #7A200D;
+  margin: auto;
+} 
 
 .bar {
   height: 5px;
@@ -58,7 +54,7 @@ body {
   color: #7A200D;
   font-weight: 700;
   margin-top: -6px;
-  margin-bottom: -2px;
+  margin-bottom: 2px;
   font-size: 25px;
   letter-spacing: 2px;
   font-variant: small-caps;
@@ -73,18 +69,19 @@ body {
 }
 
 /* Tapered line SVG */
-svg {
+.tapered-line {
   fill: #922610;
   /* Stroke is necessary for good antialiasing in Chrome. */
   stroke: #922610;
   margin-top: 0.7em;
   margin-bottom: 0.35em;
-  height: 5;
-  width: 400;
+  height: 5px;
+  width: 98%;
 }
 
 .property-line {
   margin-top: 3px;
+  line-height: 1.4;
 }
 
 .property-line > * {

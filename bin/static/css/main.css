@@ -24,6 +24,7 @@ html, body {
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 	height: 100vh;
+	flex-direction: row;
 }
 
 .form-group {
@@ -40,6 +41,10 @@ html, body {
 
 .button-row {
 	text-align: center;
+}
+
+button {
+	margin-top: 5px;
 }
 
 /* remove default link stylings */
@@ -60,12 +65,13 @@ a:hover {
 
 a:active {
     color: red;
-    text-decoration: none; 
+    text-decoration: none;
+    border-left: 0px; 
 }
 
 /* Output Div */
-#output-column {
+.output-column {
 	height: 100vh;
   	overflow: hidden;
-  	overflow-y: scroll;
+  	overflow-y: auto;
 }
