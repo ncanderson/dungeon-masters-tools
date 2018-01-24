@@ -11,30 +11,13 @@ import nate.anderson.dao.inter.RegionDAO;
 @Controller
 public class HomeController {
 
-	private RegionDAO regionDAO;
-
 	@Autowired
 	public HomeController(RegionDAO regionDAO) {
-		this.regionDAO = regionDAO;
 	}
 
 	@RequestMapping(value={"/", "/home"}, method=RequestMethod.GET)
-    public String getHomePage(Model model) {
-//        List<Region> regionNames = regionDAO.getAllRegions();
-//	
-//		model.addAttribute("regionNames", regionNames);
-        
+    public String getHomePage(Model model) {        
 		return "index";
     }
 
-//	@RequestMapping(value="/generate-random-town", method=RequestMethod.GET)
-//    public String getRandomTown(Model model) {
-//        
-//		List<Region> regionNames = regionDAO.getAllRegions();
-//	
-//		model.addAttribute("regionNames", regionNames);
-//        
-//		return "generate-random-town";
-//        
-//    }
 }
