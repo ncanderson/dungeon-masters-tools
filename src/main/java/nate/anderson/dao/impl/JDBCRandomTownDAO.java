@@ -14,7 +14,6 @@ import nate.anderson.dao.inter.RandomTownDAO;
 @Repository
 public class JDBCRandomTownDAO implements RandomTownDAO {
 
-	@Autowired
 	@Qualifier("mainJdbcTemplate")
 	private JdbcTemplate mainJdbcTemplate;
 
@@ -33,22 +32,13 @@ public class JDBCRandomTownDAO implements RandomTownDAO {
 		
 		SqlRowSet randomTownResults = mainJdbcTemplate.queryForRowSet(callRandomTownFunction, population, java.util.UUID.fromString(regionGuid)); 
 		
-		return createTownFromResultSet(randomTownResults);
-	}
-
-	private String createTownFromResultSet(SqlRowSet results) {
-
 		String randomTown = "";
 		
-		while (results.next()) {
-			
-			randomTown = results.getString("fn_generate_random_town");
-						
+		while (randomTownResults.next()) {
+			randomTown = randomTownResults.getString("fn_generate_random_town");				
 		}
 		
 		return randomTown;
 	}
-	
-	
 
 }

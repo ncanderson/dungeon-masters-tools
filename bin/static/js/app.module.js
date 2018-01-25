@@ -1,5 +1,6 @@
 var dungeonMastersTools = angular.module('dungeonMastersTools', [
 	'randomTownGenerator.module',
+	'monsterBuilder.module',
 	'mainNavigation.module',
 	'ui.router'
 ]);
@@ -32,8 +33,7 @@ dungeonMastersTools.config([
 		var monsterBuilder = {
 		    name: 'monsterBuilder',
 		    url: '/monster-builder',
-		    templateUrl: 'js/components/monsterBuilder/monsterBuilder.tpl.html'
-		    //component: 'randomTownGenerator'
+		    component: 'monsterBuilder'
 		}
 
 		var markovNameGenerator= {

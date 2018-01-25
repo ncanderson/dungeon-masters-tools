@@ -11,9 +11,11 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration
-//@PropertySource({ "classpath:application.properties" })
 public class DatabaseConfig {
 	
+	/**
+	 * Sets up the main database connection for the app
+	 */
 	@Primary
 	@Bean(name = "mainDBConnection")
 	@ConfigurationProperties(prefix = "spring.datasource")
@@ -21,14 +23,18 @@ public class DatabaseConfig {
 		return  DataSourceBuilder.create().build();
 	}
 
+	@Primary
 	@Bean(name = "mainJdbcTemplate")
 	public JdbcTemplate mainJdbcTemplate(@Qualifier("mainDBConnection") 
                                               DataSource mainDB) {
 		return new JdbcTemplate(mainDB);
 	}
 	
+	/**
+	 * Monster builder database connection
+	 */
 	@Bean(name = "monsterBuilderDBConnection")
-	@ConfigurationProperties(prefix = "spring.monsterBuilder")
+	@ConfigurationProperties(prefix = "spring.datasource.monsterBuilder")
 	public DataSource monsterBuilderDBConnection() {
 		return DataSourceBuilder.create().build();
 	}

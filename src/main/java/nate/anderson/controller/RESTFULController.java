@@ -3,8 +3,6 @@ package nate.anderson.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 
+import nate.anderson.dao.inter.MonsterBuilderDAO;
 import nate.anderson.dao.inter.RandomTownDAO;
 import nate.anderson.dao.inter.RegionDAO;
 import nate.anderson.model.Region;
@@ -20,15 +19,23 @@ import nate.anderson.model.Region;
 @RestController
 public class RESTFULController {
 
+	@Autowired
 	private RandomTownDAO randomTownDAO;
+	
+	@Autowired
 	private RegionDAO regionDAO;
+	
+	@Autowired
+	private MonsterBuilderDAO monsterBuilderDAO;
  
 	@Autowired
 	public RESTFULController(RandomTownDAO randomTownDAO,
-							 RegionDAO regionDAO) {
+							 RegionDAO regionDAO,
+							 MonsterBuilderDAO monsterBuilderDAO) {
 		
 		this.randomTownDAO = randomTownDAO;
 		this.regionDAO = regionDAO;
+		this.monsterBuilderDAO = monsterBuilderDAO;
 	}
 	
 	@ResponseBody
@@ -51,4 +58,12 @@ public class RESTFULController {
 		return randomTowns; 
 	}
 	
+	@ResponseBody
+	@RequestMapping(path="/get-all-sizes", method = RequestMethod.GET)
+	public String getAllSizes() {
+		
+		return monsterBuilderDAO.getMonsterSizes();
+	}
+	
 }
+
